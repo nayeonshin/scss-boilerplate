@@ -1,8 +1,9 @@
 import gulp from "gulp";
-import del from "del";
-import sass from "gulp-sass";
-import minify from "gulp-csso";
+
 import autoprefixer from "gulp-autoprefixer";
+import del from "del";
+import minify from "gulp-csso";
+import sass from "gulp-sass";
 
 sass.compiler = require("node-sass");
 
@@ -10,7 +11,7 @@ const routes = {
   css: {
     watch: "src/scss/*",
     src: "src/scss/style.scss",
-    dest: "dist/css",
+    dest: "dest/css",
   },
 };
 
@@ -31,7 +32,7 @@ const watch = () => {
   gulp.watch(routes.css.watch, styles);
 };
 
-const clean = () => del(["dist/css/style.css"]);
+const clean = () => del(["dest/css/style.css"]);
 
 const prepare = gulp.series([clean]);
 
